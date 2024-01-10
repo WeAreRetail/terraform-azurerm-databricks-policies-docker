@@ -12,19 +12,26 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >=3.11.0 |
+| <a name="requirement_azurecaf"></a> [azurecaf](#requirement\_azurecaf) | >= 1.2.16 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 3.0.2 |
+| <a name="requirement_databricks"></a> [databricks](#requirement\_databricks) | >= 1.0.0 |
 
 #### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_disaster_recovery"></a> [disaster\_recovery](#input\_disaster\_recovery) | To return the resource in the correct region | `bool` | n/a | yes |
+| <a name="input_can_use_group"></a> [can\_use\_group](#input\_can\_use\_group) | The group that can use the policy | `string` | n/a | yes |
+| <a name="input_databricks_version"></a> [databricks\_version](#input\_databricks\_version) | The specific Databricks runtime version. Example: "11.3.x-scala2.12" | `string` | n/a | yes |
+| <a name="input_docker_image_url"></a> [docker\_image\_url](#input\_docker\_image\_url) | The Docker image URL | `string` | n/a | yes |
+| <a name="input_docker_spn_client_id"></a> [docker\_spn\_client\_id](#input\_docker\_spn\_client\_id) | The SPN client id for ACR authentication | `string` | n/a | yes |
+| <a name="input_docker_spn_client_secret"></a> [docker\_spn\_client\_secret](#input\_docker\_spn\_client\_secret) | The SPN client secret for ACR authentication | `string` | n/a | yes |
+| <a name="input_policy_name"></a> [policy\_name](#input\_policy\_name) | Cluster Policy Name | `string` | n/a | yes |
+| <a name="input_logs_path"></a> [logs\_path](#input\_logs\_path) | The cluster log path | `string` | `""` | no |
+| <a name="input_policy_overrides"></a> [policy\_overrides](#input\_policy\_overrides) | Cluster policy overrides | `map` | `{}` | no |
 
 #### Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_ids"></a> [ids](#output\_ids) | The IDs of the subnets in the current region. |
-| <a name="output_ids_sql"></a> [ids\_sql](#output\_ids\_sql) | The IDs of the subnets for SQL. |
-| <a name="output_ids_storage"></a> [ids\_storage](#output\_ids\_storage) | The IDs of the subnets for Storage. |
+| <a name="output_policy_id"></a> [policy\_id](#output\_policy\_id) | ID of the policy created. |
 <!-- END_TF_DOCS -->
