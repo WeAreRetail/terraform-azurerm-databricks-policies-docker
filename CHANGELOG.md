@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2024-03-04
+
+### Trying to bump to minor version to trigger terraform module update
+
+- Bumping to minor version to try and update terraform module
+
 ## [1.0.1] - 2024-03-04
 
 ### fixed
