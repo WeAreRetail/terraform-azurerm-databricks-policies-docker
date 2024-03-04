@@ -28,7 +28,7 @@ locals {
       "defaultValue" : 1
     },
     "azure_attributes.availability" : {
-      "type" : "unlimited",
+      "type" : "fixed",
       "value" : "SPOT_WITH_FALLBACK_AZURE",
       "hidden" : false
     },
@@ -43,12 +43,12 @@ locals {
     },
     "docker_image.basic_auth.password" : {
       "type" : "fixed",
-      "hidden" : "false",
+      "hidden" : false,
       "value" : "${var.docker_spn_client_secret}"
     },
     "docker_image.basic_auth.username" : {
       "type" : "fixed",
-      "hidden" : "false",
+      "hidden" : false,
       "value" : "${var.docker_spn_client_id}"
     },
     "docker_image.url" : {
