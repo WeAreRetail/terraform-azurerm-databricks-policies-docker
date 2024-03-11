@@ -29,7 +29,7 @@ locals {
     },
     "azure_attributes.availability" : {
       "type" : "fixed",
-      "value" : "SPOT_WITH_FALLBACK_AZURE",
+      "value" : "SPOT_AZURE",
       "hidden" : false
     },
     "custom_tags.policy" : {
