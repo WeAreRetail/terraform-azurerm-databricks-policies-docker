@@ -28,8 +28,12 @@ locals {
       "defaultValue" : 1
     },
     "azure_attributes.availability" : {
-      "type" : "fixed",
-      "value" : "SPOT_AZURE",
+      "type" : "allowlist",
+      "values" : [
+        "SPOT_AZURE",
+        "ON_DEMAND_AZURE",
+        "SPOT_WITH_FALLBACK_AZURE"
+      ],
       "hidden" : false
     },
     "custom_tags.policy" : {
@@ -43,12 +47,12 @@ locals {
     },
     "docker_image.basic_auth.password" : {
       "type" : "fixed",
-      "hidden" : false,
+      "hidden" : true,
       "value" : "${var.docker_spn_client_secret}"
     },
     "docker_image.basic_auth.username" : {
       "type" : "fixed",
-      "hidden" : false,
+      "hidden" : true,
       "value" : "${var.docker_spn_client_id}"
     },
     "docker_image.url" : {
