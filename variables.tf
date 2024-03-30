@@ -41,7 +41,7 @@ variable "policy_name" {
 }
 
 variable "policy_overrides" {
-  type        = map(any)
+  type        = map(map(any))
   description = "Cluster policy overrides"
   default     = {}
 }

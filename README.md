@@ -28,7 +28,7 @@
 | <a name="input_policy_name"></a> [policy\_name](#input\_policy\_name) | Cluster Policy Name | `string` | n/a | yes |
 | <a name="input_is_job_policy"></a> [is\_job\_policy](#input\_is\_job\_policy) | Whether the policy is a job policy. This is an informational variable. | `bool` | `false` | no |
 | <a name="input_logs_path"></a> [logs\_path](#input\_logs\_path) | The cluster log path | `string` | `""` | no |
-| <a name="input_policy_overrides"></a> [policy\_overrides](#input\_policy\_overrides) | Cluster policy overrides | `map(any)` | `{}` | no |
+| <a name="input_policy_overrides"></a> [policy\_overrides](#input\_policy\_overrides) | Cluster policy overrides | `map(map(any))` | `{}` | no |
 
 #### Outputs
 

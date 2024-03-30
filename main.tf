@@ -12,7 +12,10 @@ resource "databricks_permissions" "can_use_cluster_policyinstance_profile" {
 }
 
 locals {
-  merged_policy = merge(local.default_policy, var.policy_overrides, local.log_policy)
+
+  policy_overrides_safe = var.policy_overrides != null ? var.policy_overrides : {}
+
+  merged_policy = merge(local.default_policy, local.policy_overrides_safe, local.log_policy)
 
   # If a log_name was provided, define the log policy.
   log_policy = length(var.logs_path) > 0 ? local.log_policy_template : {}
