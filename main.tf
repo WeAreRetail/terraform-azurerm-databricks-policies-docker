@@ -48,21 +48,21 @@ locals {
     "docker_image.basic_auth.password" : {
       "type" : "fixed",
       "hidden" : true,
-      "value" : "${var.docker_spn_client_secret}"
+      "value" : var.docker_spn_client_secret
     },
     "docker_image.basic_auth.username" : {
       "type" : "fixed",
       "hidden" : true,
-      "value" : "${var.docker_spn_client_id}"
+      "value" : var.docker_spn_client_id
     },
     "docker_image.url" : {
       "type" : "fixed",
       "hidden" : false,
-      "value" : "${var.docker_image_url}"
+      "value" : var.docker_image_url
     },
     "spark_version" : {
       "type" : "allowlist",
-      "values" : ["${var.databricks_version}"]
+      "values" : [var.databricks_version]
       "hidden" : false
     }
   }
@@ -75,7 +75,7 @@ locals {
     },
     "cluster_log_conf.path" : {
       "type" : "fixed",
-      "value" : "${var.logs_path}",
+      "value" : var.logs_path,
       "hidden" : false
     }
   }
