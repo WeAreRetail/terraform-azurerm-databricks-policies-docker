@@ -41,7 +41,15 @@ variable "policy_name" {
 }
 
 variable "policy_overrides" {
-  type        = map(map(any))
+  type        = any
   description = "Cluster policy overrides"
   default     = {}
+
+  validation {
+    condition = can({
+      for key, value in var.policy_overrides : key => value
+    })
+
+    error_message = "Invalid policy overrides. Must be a map."
+  }
 }

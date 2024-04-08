@@ -63,6 +63,11 @@ locals {
       "hidden" : false,
       "value" : var.docker_image_url
     },
+    "runtime_engine" : {
+      "type" : "fixed",
+      "value" : "STANDARD",
+      "hidden" : false
+    },
     "spark_version" : {
       "type" : "allowlist",
       "values" : [var.databricks_version]
