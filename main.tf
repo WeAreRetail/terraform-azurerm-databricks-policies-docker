@@ -17,6 +17,15 @@ locals {
 
   merged_policy = merge(local.default_policy, local.policy_overrides_safe, local.log_policy)
 
+  # Convert all values to the correct type.
+  merged_policy_typed = {
+    for key, value in local.merged_policy : key => {
+      for k, v in value : k => (
+        try(tonumber(v), tobool(v), v)
+      )
+    }
+  }
+
   # If a log_name was provided, define the log policy.
   log_policy = length(var.logs_path) > 0 ? local.log_policy_template : {}
 

@@ -1,9 +1,17 @@
+<!-- markdownlint-disable MD024 -->
 # Changelog
 
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [3.0.0] - 2024-09-11
+
+### Breaking change
+
+Forcibly try to convert policy values to number or bool before encoding in json.
+Considered as a breaking change as it doesn't respect the same contract.
 
 ## [2.5.2] - 2024-04-08
 
