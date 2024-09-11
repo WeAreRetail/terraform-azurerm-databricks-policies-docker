@@ -1,6 +1,6 @@
 resource "databricks_cluster_policy" "policy" {
   name       = var.policy_name
-  definition = jsonencode(local.merged_policy)
+  definition = jsonencode(local.merged_policy_typed)
 }
 
 resource "databricks_permissions" "can_use_cluster_policyinstance_profile" {
