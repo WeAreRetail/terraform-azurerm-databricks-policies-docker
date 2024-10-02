@@ -21,7 +21,7 @@ locals {
   merged_policy_typed = {
     for key, value in local.merged_policy : key => {
       for k, v in value : k => (
-        try(tonumber(v), tobool(v), v)
+        strcontains(key, "spark_conf") ? v : try(tonumber(v), tobool(v), v)
       )
     }
   }
