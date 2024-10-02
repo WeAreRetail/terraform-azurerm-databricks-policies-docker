@@ -14,8 +14,8 @@ resource "databricks_permissions" "can_use_cluster_policyinstance_profile" {
 locals {
 
   policy_overrides_safe = var.policy_overrides != null ? var.policy_overrides : {}
-
-  merged_policy = merge(local.default_policy, local.policy_overrides_safe, local.log_policy)
+  unity_policy          = var.unity_enabled ? local.unity_policy_defaults : {}
+  merged_policy         = merge(local.default_policy, local.unity_policy, local.policy_overrides_safe, local.log_policy)
 
   # Convert all values to the correct type.
   merged_policy_typed = {
@@ -94,6 +94,32 @@ locals {
       "type" : "fixed",
       "value" : var.logs_path,
       "hidden" : false
+    }
+  }
+
+  unity_policy_defaults = {
+    "data_security_mode" : {
+      "type" : "fixed",
+      "value" : "SINGLE_USER",
+      "hidden" : false
+    },
+    "runtime_engine" : {
+      "type" : "fixed",
+      "value" : "STANDARD",
+      "hidden" : false
+    },
+    "spark_conf.spark.databricks.unityCatalog.volumes.enabled" : {
+      "type" : "fixed",
+      "value" : "true",
+      "hidden" : false
+    },
+    "spark_env_vars.LANG" : {
+      "value" : "C.UTF-8",
+      "type" : "fixed"
+    },
+    "spark_env_vars.LC_ALL" : {
+      "value" : "C.UTF-8",
+      "type" : "fixed"
     }
   }
 }

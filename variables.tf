@@ -53,3 +53,9 @@ variable "policy_overrides" {
     error_message = "Invalid policy overrides. Must be a map."
   }
 }
+
+variable "unity_enabled" {
+  type        = bool
+  default     = false
+  description = "Decides whether unity is enabled or not, this changes the default policies attributes to be deployed"
+}
