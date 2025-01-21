@@ -18,13 +18,20 @@ locals {
   merged_policy         = merge(local.default_policy, local.unity_policy, local.policy_overrides_safe, local.log_policy)
 
   # Convert all values to the correct type.
-  merged_policy_typed = {
+  merged_policy_typed_no_spark_conf = {
     for key, value in local.merged_policy : key => {
-      for k, v in value : k => (
-        strcontains(key, "spark_conf") ? v : try(tonumber(v), tobool(v), v)
-      )
-    }
+      for k, v in value : k => try(tonumber(v), tobool(v), v)
+    } if !strcontains(key, "spark_conf")
   }
+
+  # No conversion for spark_conf values.
+  merged_policy_typed_spark_conf = {
+    for key, value in local.merged_policy : key => {
+      for k, v in value : k => v
+    } if strcontains(key, "spark_conf")
+  }
+
+  merged_policy_typed = merge(local.merged_policy_typed_no_spark_conf, local.merged_policy_typed_spark_conf)
 
   # If a log_name was provided, define the log policy.
   log_policy = length(var.logs_path) > 0 ? local.log_policy_template : {}
