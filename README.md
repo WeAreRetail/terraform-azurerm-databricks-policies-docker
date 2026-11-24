@@ -10,7 +10,7 @@
 #### Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
 | <a name="requirement_azurecaf"></a> [azurecaf](#requirement\_azurecaf) | >= 1.2.16 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 3.0.2 |
@@ -19,7 +19,7 @@
 #### Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_can_use_group"></a> [can\_use\_group](#input\_can\_use\_group) | The group that can use the policy | `string` | n/a | yes |
 | <a name="input_databricks_version"></a> [databricks\_version](#input\_databricks\_version) | The specific Databricks runtime version. Example: "11.3.x-scala2.12" | `string` | n/a | yes |
 | <a name="input_docker_image_url"></a> [docker\_image\_url](#input\_docker\_image\_url) | The Docker image URL | `string` | n/a | yes |
@@ -34,7 +34,7 @@
 #### Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_is_job_policy"></a> [is\_job\_policy](#output\_is\_job\_policy) | Whether the policy is a job policy. Informational variable. |
 | <a name="output_policy_id"></a> [policy\_id](#output\_policy\_id) | ID of the policy created. |
 | <a name="output_policy_name"></a> [policy\_name](#output\_policy\_name) | Name of the policy created. |
